@@ -124,9 +124,9 @@ def get_current_hour(region, ignore_region_time=False):
 def MakeLog(msg, no_end=False):
     global logdetails
     if no_end:
-        print(msg, end="")
+        print(msg, end="", flush=True)
     else:
-        print(msg)
+        print(msg, flush=True)
         logdetail = oci.loggingingestion.models.LogEntry()
         logdetail.id = datetime.datetime.now(datetime.timezone.utc).isoformat()
         logdetail.data = msg
